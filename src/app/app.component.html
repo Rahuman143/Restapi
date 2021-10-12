@@ -1,0 +1,67 @@
+<form (formGroup)="loginForm"  (ngSubmit)="onSubmit()">
+  <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Userid</label>
+    <div class="col-sm-10">
+      <input type="number" formControlName="userId"  placeholder="UserId" class="form-control">
+    </div>
+    </div>
+    <div class="form-group row">
+      <label for="inputPassword3" class="col-sm-2 col-form-label">Id</label>
+      <div class="col-sm-10">
+        <input type="text" formControlName="id"  class="form-control" placeholder="id">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inputEmail3" class="col-sm-2 col-form-label">Title</label>
+      <div class="col-sm-10">
+        <input type="text" formControlName="title"  class="form-control" placeholder="title">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inputPassword3" class="col-sm-2 col-form-label">Description</label>
+      <div class="col-sm-10">
+        <input type="text" formControlName="description"  class="form-control" placeholder="Password">
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-10">
+        <button type="button" class="btn btn-primary" (click)="postEmployeeDetails()">Submit</button>
+        <!--<button type="button" class="btn btn-primary"  [disabled]="!userForm.valid" (click)="addItem()">Add</button>-->
+      </div>
+    </div>
+</form>
+<div class="col-sm-10 ">
+  <table class="table table-bordered table-primary mt-4">
+    <thead>
+      <th>UserId</th>
+      <th>Id</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Action</th>
+    </thead>
+    <tbody>
+
+      <tr *ngFor="let item of employeeData">
+        <td>{{item.userId}}</td>
+        <td>{{item.id}}</td>
+        <td>{{item.title}}</td>
+        <td>{{item.description}}</td>
+        <td><button type="button" class="btn btn-primary" (click)="deleteEmployee()">Delete</button></td>
+        <!--<td><button type="submit" class="btn btn-primary" (click)="editItem()">Delete</button></td>-->
+      </tr>
+    </tbody>
+
+    <!--
+    <tbody>
+      <tr *ngFor="let item of listData">
+        <td><span>{{item.firstname}}</span></td>
+        <td><span>{{item.lastname}}</span></td>
+        <td><span>{{item.email}}</span></td>
+        <td><span>{{item.password}}</span></td>
+        <td><button type="submit" class="btn btn-primary" (click)="edit()">Edit</button></td>
+          <td><button type="submit" class="btn btn-primary" (click)="removeItem(item)">Delete</button></td>
+      </tr>
+    </tbody>
+    -->
+  </table>
+</div>
